@@ -52,6 +52,7 @@ apt-get update
 apt-get install isc-dhcp-relay
 ```
 Setelah proses penginstallan berhasil, kita mulai untuk melakukan setting server dan setting interfaces yang membantu DHCP Request dapat diteruskan dengan baik ke DHCP Server pada file `/etc/default/isc-dhcp-relay`
+
 **DHCP Relay pada FOOSHA**
 
 ![](./image/d.3.png)

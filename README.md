@@ -27,6 +27,7 @@ WATER7 diberikan default route.
 ### GUANHAO
 GUANHAO diberikan default route.
 ![](./image/c.3.png)
+
 Agar routing tidak perlu dilakukan berulang-ulang, disimpan pada file bash dengan nama `route.sh` kemudian untuk menjalankannya dengan mengetikkan command `bash route.sh`.
 
 
@@ -56,21 +57,21 @@ Setelah proses penginstallan berhasil, kita mulai untuk melakukan setting server
 ![](./image/d.3.png)
 
 Keterangan:
-•	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *FOOSHA* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.
+•	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *FOOSHA* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
 •	`INTERFACES="eth1 eth2"`: DHCP Relay *FOOSHA* akan meneruskan DHCP Request dari subnet A4 *(WATER7)* dan subnet A5 *(GUANHAO)* dari network interfaces eth1 eth2.
 
 *DHCP Relay pada WATER7*
 ![](./imag/d.4.png)
 
 Keterangan:
-•	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *WATER7* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.
+•	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *WATER7* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
 •	`INTERFACES="eth0 eth1 eth2 eth3"`: DHCP Relay *WATER7* akan meneruskan DHCP Request dari subnet A2 *(BLUENO)* dan subnet A3 *(CIPHER)*.
 
 *DHCP Relay pada GUANHAO*
 ![](./image/d.5.png)
 
 Keterangan:
-• SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *GUANHAO* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.
+• `SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *GUANHAO* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
 •	`INTERFACES="eth0 eth1 eth3"`: DHCP Relay *GUANHAO* akan meneruskan DHCP Request dari subnet A6 *(ELENA)* dan subnet A7 *(FUKUROU)*.
 
 Langkah 5 – Pada masing-masing client yaitu *BLUENO, CIPHER, ELENA,* dan *FUKUROU* melakukan edit pada file `/etc/network/interfaces` sehingga menjadi sebagai berikut:

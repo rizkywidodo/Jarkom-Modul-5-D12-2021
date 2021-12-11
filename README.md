@@ -6,8 +6,9 @@ Laporan Resmi Praktikum Jaringan Komputer 2021 - D12
 - Muhammad Rizky Widodo (05111940000216)
 
 ## A. Topologi Jaringan
-Pertama, membuat topologi jaringan sesuai rancangan yaitu sebagai beriku
-![](./image/Screenshot_20211211-195903_Word.png)
+Pertama, membuat topologi jaringan sesuai rancangan yaitu sebagai berikut:
+
+![](./image/a.1.jpg)
 
 Keterangan:
 - Doriki sebagai DNS Server
@@ -18,52 +19,68 @@ Keterangan:
 - Jumlah Host pada Elena adalah 300 host
 - Jumlah Host pada Fukurou adalah 200 host
 
-
-
 ## B. Subnetting VLSM
-
 Kelompok kami menggunakan teknik VLSM (Variable Length Subnet Masking) dengan langkah-langkah sebagai berikut:
+
 **Langkah 1** - Melakukan pembagian subnet berdasarkan topologi yang terdapat pada soal.
 
-![](./image/Screenshot_20211211-201045_Word.png)
+![](./image/b.1.jpg)
 
 Dari hasil pembagian subnet, kita mendapatkan delapan subnet yang terdiri atas dua subnet untuk router-router (A4, A5), empat subnet untuk router-client (A2, A3, A6, A7) dan dua subnet untuk router-server (A1 dan A8).
+
 **Langkah 2** - Menentukan jumlah alamat IP yang dibutuhkan oleh tiap subnet dan lakukan labelling netmask berdasarkan jumlah IP yang dibutuhkan.
 
-![](./image/Screenshot_20211211-201504_Word.png)
+| Subnet       | Jumlah IP     | Netmask       |
+| ------------ | ------------- | ------------- |
+| A1           | 3             | /29           |
+| A2           | 101           | /25           |
+| A3           | 701           | /22           |
+| A4           | 2             | /30           |
+| A5           | 2             | /30           |
+| A6           | 301           | /23           |
+| A7           | 201           | /24           |
+| A8           | 3             | /29           |
+| Total        | 1314          | /21           |
 
-**Langkah 3** - Subnet besar yang dibentuk memiliki NID **10.27.0.0** dengan netmask /**21**. Menghitung pembagian IP berdasarkan NID dan netmask tersebut menggunakan tree seperti gambar di bawah.
+**Langkah 3** - Subnet besar yang dibentuk memiliki NID ``10.27.0.0`` dengan netmask ``/21``. Menghitung pembagian IP berdasarkan NID dan netmask tersebut menggunakan tree seperti gambar di bawah.
 
-![](./image/Screenshot_20211211-202858_Word.png)
+![](./image/b.2.jpg)
 
 Dari tree tersebut akan mendapat pembagian IP sebagai berikut:
 
-![](./image/Screenshot_20211211-203138_Word.png)
+![](./image/b.3.jpg)
 
 Selanjutnya, hasil dari perhitungan subnet tersebut dapat diimplementasikan ke dalam GNS3. Pada file `/etc/sysctl.conf ` di router yang meliputi **FOOSHA**, **WATER7**, dan **GUANHAO** diedit dengan melakukan uncomment pada command `net.ipv4.ip forward=1` tujuannya agar dapat meneruskan route nantinya. Kemudian untuk mengaktifkan perubahan baru megetikkan command ` sysctl -p `.
 
 Lalu, karena setiap subnet sudah mendapatkan pembagian IP, perlu dilakukan setting pada file `/etc/network/interfaces` masing-masing sebagai berikut:
 
 **FOOSHA (Router)**
-![](./image/Screenshot_20211211-203359_Word.png)
+
+![](./image/b.4.jpg)
 
 **WATER7 (Router)**
-![](./image/Screenshot_20211211-203855_Word.png)
+
+![](./image/b.5.jpg)
 
 **GUANHAO (Router)**
-![](./image/Screenshot_20211211-204123_Word.png)
+
+![](./image/b.6.jpg)
 
 **DORIKI (DNS Server)**
-![](./image/Screenshot_20211211-204343_Word.png)
+
+![](./image/b.7.jpg)
 
 **JIPANGU (DHCP Server)**
-![](./image/Screenshot_20211211-204517_Word.png)
+
+![](./image/b.8.jpg)
 
 **JORGE (Web Server)**
-![](./image/Screenshot_20211211-204656_Word.png)
+
+![](./image/b.9.jpg)
 
 **MAINGATE (Web Server)**
-![](./image/Screenshot_20211211-204858_Word.png)
+
+![](./image/b.10.jpg)
 
 Client mendapatkan pembagian IP bukan secara static melainkan dari DHCP, maka akan dibahas pada subbab D nantinya. 
 

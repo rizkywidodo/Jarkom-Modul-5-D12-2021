@@ -12,21 +12,21 @@ Laporan Resmi Praktikum Jaringan Komputer 2021 - D12
 ## C. Routing VLSM
 Untuk routing, diberikan static route pada semua router yang ada dengan route sebagai berikut untuk setiap router:
 
-![](./images/c.png)
+![](./image/c.png)
 
 Selanjutnya diimlementasikan ke GNS3 pada masing-masing router, sebagai berikut:
 
 ### FOOSHA
 FOOSHA diberikan route ke arah subnet A1, A2, A3, A6, A7, dan A8.
-![](./images/c.1.png)
+![](./image/c.1.png)
 
 ### WATER7
 WATER7 diberikan default route.
-![](./images/c.2.png)
+![](./image/c.2.png)
 
 ### GUANHAO
 GUANHAO diberikan default route.
-![](./images/c.3.png)
+![](./image/c.3.png)
 Agar routing tidak perlu dilakukan berulang-ulang, disimpan pada file bash dengan nama `route.sh` kemudian untuk menjalankannya dengan mengetikkan command `bash route.sh`.
 
 
@@ -39,11 +39,11 @@ apt-get update
 apt-get install isc-dhcp-server -y
 ```
 *Langkah 2* – Melakukan setting interfaces yang akan diberikan layanan DHCP oleh DHCP Server JIPANGU pada file `/etc/default/isc-dhcp-server `.
-![](./images/d.1.png)
+![](./image/d.1.png)
 Interfaces dari server JIPANGU hanya ada satu interfaces yaitu `eth0`, dimana interfaces ini terhubung ke router WATER7.
 
 *Langkah 3* – Agar DHCP Server JIPANGU dapat berjalan dengan lancar, maka kita perlu untuk melakukan deklarasi subnet yang terkoneksi pada JIPANGU yakni subnet A1, A2, A3, A6, dan A7 pada file `/etc/dhcp/dhcpd.conf`.
-![](./images/d.2.png)
+![](./image/d.2.png)
 
 *Langkah 4* – Pada FOOSHA, WATER7, dan GUANHAO yang akan menjadi DHCP Relay, maka perlu menginstallnya dengan command
 ```
@@ -53,21 +53,21 @@ apt-get install isc-dhcp-relay
 Setelah proses penginstallan berhasil, kita mulai untuk melakukan setting server dan setting interfaces yang membantu DHCP Request dapat diteruskan dengan baik ke DHCP Server pada file `/etc/default/isc-dhcp-relay`
 *DHCP Relay pada FOOSHA*
 
-![](./images/d.3.png)
+![](./image/d.3.png)
 
 Keterangan:
 •	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *FOOSHA* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.
 •	`INTERFACES="eth1 eth2"`: DHCP Relay *FOOSHA* akan meneruskan DHCP Request dari subnet A4 *(WATER7)* dan subnet A5 *(GUANHAO)* dari network interfaces eth1 eth2.
 
 *DHCP Relay pada WATER7*
-![](./images/d.4.png)
+![](./imag/d.4.png)
 
 Keterangan:
 •	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *WATER7* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.
 •	`INTERFACES="eth0 eth1 eth2 eth3"`: DHCP Relay *WATER7* akan meneruskan DHCP Request dari subnet A2 *(BLUENO)* dan subnet A3 *(CIPHER)*.
 
 *DHCP Relay pada GUANHAO*
-![](./images/d.5.png)
+![](./image/d.5.png)
 
 Keterangan:
 • SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *GUANHAO* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.

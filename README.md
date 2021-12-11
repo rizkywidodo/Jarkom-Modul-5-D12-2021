@@ -47,7 +47,25 @@ Lalu, karena setiap subnet sudah mendapatkan pembagian IP, perlu dilakukan setti
 **FOOSHA (Router)**
 ![](./image/Screenshot_20211211-203359_Word.png)
 
+**WATER7 (Router)**
+![](./image/Screenshot_20211211-203855_Word.png)
 
+**GUANHAO (Router)**
+![](./image/Screenshot_20211211-204123_Word.png)
+
+**DORIKI (DNS Server)**
+![](./image/Screenshot_20211211-204343_Word.png)
+
+**JIPANGU (DHCP Server)**
+![](./image/Screenshot_20211211-204517_Word.png)
+
+**JORGE (Web Server)**
+![](./image/Screenshot_20211211-204656_Word.png)
+
+**MAINGATE (Web Server)**
+![](./image/Screenshot_20211211-204858_Word.png)
+
+Client mendapatkan pembagian IP bukan secara static melainkan dari DHCP, maka akan dibahas pada subbab D nantinya. 
 
 ## C. Routing VLSM
 Untuk routing, diberikan static route pada semua router yang ada dengan route sebagai berikut untuk setiap router:

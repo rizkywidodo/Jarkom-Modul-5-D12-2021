@@ -56,21 +56,21 @@ Setelah proses penginstallan berhasil, kita mulai untuk melakukan setting server
 
 ![](./image/d.3.png)
 
-Keterangan:
+Keterangan:<br>
 •	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *FOOSHA* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
 •	`INTERFACES="eth1 eth2"`: DHCP Relay *FOOSHA* akan meneruskan DHCP Request dari subnet A4 *(WATER7)* dan subnet A5 *(GUANHAO)* dari network interfaces eth1 eth2.
 
 *DHCP Relay pada WATER7*
 ![](./imag/d.4.png)
 
-Keterangan:
+Keterangan:<br>
 •	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *WATER7* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
 •	`INTERFACES="eth0 eth1 eth2 eth3"`: DHCP Relay *WATER7* akan meneruskan DHCP Request dari subnet A2 *(BLUENO)* dan subnet A3 *(CIPHER)*.
 
 *DHCP Relay pada GUANHAO*
 ![](./image/d.5.png)
 
-Keterangan:
+Keterangan:<br>
 • `SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *GUANHAO* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
 •	`INTERFACES="eth0 eth1 eth3"`: DHCP Relay *GUANHAO* akan meneruskan DHCP Request dari subnet A6 *(ELENA)* dan subnet A7 *(FUKUROU)*.
 

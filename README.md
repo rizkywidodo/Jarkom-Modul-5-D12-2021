@@ -32,6 +32,23 @@ Dari hasil pembagian subnet, kita mendapatkan delapan subnet yang terdiri atas d
 
 ![](./image/Screenshot_20211211-201504_Word.png)
 
+**Langkah 3** - Subnet besar yang dibentuk memiliki NID **10.27.0.0** dengan netmask /**21**. Menghitung pembagian IP berdasarkan NID dan netmask tersebut menggunakan tree seperti gambar di bawah.
+
+![](./image/Screenshot_20211211-202858_Word.png)
+
+Dari tree tersebut akan mendapat pembagian IP sebagai berikut:
+
+![](./image/Screenshot_20211211-203138_Word.png)
+
+Selanjutnya, hasil dari perhitungan subnet tersebut dapat diimplementasikan ke dalam GNS3. Pada file `/etc/sysctl.conf ` di router yang meliputi **FOOSHA**, **WATER7**, dan **GUANHAO** diedit dengan melakukan uncomment pada command `net.ipv4.ip forward=1` tujuannya agar dapat meneruskan route nantinya. Kemudian untuk mengaktifkan perubahan baru megetikkan command ` sysctl -p `.
+
+Lalu, karena setiap subnet sudah mendapatkan pembagian IP, perlu dilakukan setting pada file `/etc/network/interfaces` masing-masing sebagai berikut:
+
+**FOOSHA (Router)**
+![](./image/Screenshot_20211211-203359_Word.png)
+
+
+
 ## C. Routing VLSM
 Untuk routing, diberikan static route pada semua router yang ada dengan route sebagai berikut untuk setiap router:
 

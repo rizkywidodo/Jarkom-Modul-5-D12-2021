@@ -34,47 +34,47 @@ Agar routing tidak perlu dilakukan berulang-ulang, disimpan pada file bash denga
 ## D. DHCP Server dan DHCP Relay 
 Agar IP Dinamis diberikan kepada client BLUENO, CIPHER, ELENA, dan FUKUROU dapat berjalan, kita perlu melakukan setting konfigurasi DHCP Server di JIPANGU dengan langkah-langkah sebagai berikut:
 
-*Langkah 1* – Menginstall DHCP Server pada JIPANGU dengan command berikut:
+**Langkah 1** – Menginstall DHCP Server pada JIPANGU dengan command berikut:
 ```
 apt-get update
 apt-get install isc-dhcp-server -y
 ```
-*Langkah 2* – Melakukan setting interfaces yang akan diberikan layanan DHCP oleh DHCP Server JIPANGU pada file `/etc/default/isc-dhcp-server `.
+**Langkah 2** – Melakukan setting interfaces yang akan diberikan layanan DHCP oleh DHCP Server JIPANGU pada file `/etc/default/isc-dhcp-server `.
 ![](./image/d.1.png)
 Interfaces dari server JIPANGU hanya ada satu interfaces yaitu `eth0`, dimana interfaces ini terhubung ke router WATER7.
 
-*Langkah 3* – Agar DHCP Server JIPANGU dapat berjalan dengan lancar, maka kita perlu untuk melakukan deklarasi subnet yang terkoneksi pada JIPANGU yakni subnet A1, A2, A3, A6, dan A7 pada file `/etc/dhcp/dhcpd.conf`.
+**Langkah 3** – Agar DHCP Server JIPANGU dapat berjalan dengan lancar, maka kita perlu untuk melakukan deklarasi subnet yang terkoneksi pada JIPANGU yakni subnet A1, A2, A3, A6, dan A7 pada file `/etc/dhcp/dhcpd.conf`.
 ![](./image/d.2.png)
 
-*Langkah 4* – Pada FOOSHA, WATER7, dan GUANHAO yang akan menjadi DHCP Relay, maka perlu menginstallnya dengan command
+**Langkah 4** – Pada FOOSHA, WATER7, dan GUANHAO yang akan menjadi DHCP Relay, maka perlu menginstallnya dengan command
 ```
 apt-get update
 apt-get install isc-dhcp-relay
 ```
 Setelah proses penginstallan berhasil, kita mulai untuk melakukan setting server dan setting interfaces yang membantu DHCP Request dapat diteruskan dengan baik ke DHCP Server pada file `/etc/default/isc-dhcp-relay`
-*DHCP Relay pada FOOSHA*
+**DHCP Relay pada FOOSHA**
 
 ![](./image/d.3.png)
 
 Keterangan:<br>
-•	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *FOOSHA* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
-•	`INTERFACES="eth1 eth2"`: DHCP Relay *FOOSHA* akan meneruskan DHCP Request dari subnet A4 *(WATER7)* dan subnet A5 *(GUANHAO)* dari network interfaces eth1 eth2.
+•	`SERVERS="10.27.0.11"`: **JIPANGU** diminta oleh DHCP Relay **FOOSHA** untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server **JIPANGU**.<br>
+•	`INTERFACES="eth1 eth2"`: DHCP Relay **FOOSHA** akan meneruskan DHCP Request dari subnet A4 **(WATER7)** dan subnet A5 **(GUANHAO)** dari network interfaces eth1 eth2.
 
-*DHCP Relay pada WATER7*
+**DHCP Relay pada WATER7**
 ![](./imag/d.4.png)
 
 Keterangan:<br>
-•	`SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *WATER7* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
-•	`INTERFACES="eth0 eth1 eth2 eth3"`: DHCP Relay *WATER7* akan meneruskan DHCP Request dari subnet A2 *(BLUENO)* dan subnet A3 *(CIPHER)*.
+•	`SERVERS="10.27.0.11"`: **JIPANGU** diminta oleh DHCP Relay **WATER7** untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server **JIPANGU**.<br>
+•	`INTERFACES="eth0 eth1 eth2 eth3"`: DHCP Relay **WATER7** akan meneruskan DHCP Request dari subnet A2 **(BLUENO)** dan subnet A3 **(CIPHER)**.
 
-*DHCP Relay pada GUANHAO*
+**DHCP Relay pada GUANHAO**
 ![](./image/d.5.png)
 
 Keterangan:<br>
 • `SERVERS="10.27.0.11"`: *JIPANGU* diminta oleh DHCP Relay *GUANHAO* untuk meneruskan DHCP Request, sehingga diisi dengan IP dari DHCP Server *JIPANGU*.<br>
 •	`INTERFACES="eth0 eth1 eth3"`: DHCP Relay *GUANHAO* akan meneruskan DHCP Request dari subnet A6 *(ELENA)* dan subnet A7 *(FUKUROU)*.
 
-Langkah 5 – Pada masing-masing client yaitu *BLUENO, CIPHER, ELENA,* dan *FUKUROU* melakukan edit pada file `/etc/network/interfaces` sehingga menjadi sebagai berikut:
+Langkah 5 – Pada masing-masing client yaitu **BLUENO, CIPHER, ELENA,** dan **FUKUROU** melakukan edit pada file `/etc/network/interfaces` sehingga menjadi sebagai berikut:
 
 ```
 auto lo

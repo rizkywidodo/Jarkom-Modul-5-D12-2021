@@ -22,6 +22,16 @@ Keterangan:
 
 ## B. Subnetting VLSM
 
+Kelompok kami menggunakan teknik VLSM (Variable Length Subnet Masking) dengan langkah-langkah sebagai berikut:
+**Langkah 1** - Melakukan pembagian subnet berdasarkan topologi yang terdapat pada soal.
+
+![](./image/Screenshot_20211211-201045_Word.png)
+
+Dari hasil pembagian subnet, kita mendapatkan delapan subnet yang terdiri atas dua subnet untuk router-router (A4, A5), empat subnet untuk router-client (A2, A3, A6, A7) dan dua subnet untuk router-server (A1 dan A8).
+**Langkah 2** - Menentukan jumlah alamat IP yang dibutuhkan oleh tiap subnet dan lakukan labelling netmask berdasarkan jumlah IP yang dibutuhkan.
+
+![](./image/Screenshot_20211211-201504_Word.png)
+
 ## C. Routing VLSM
 Untuk routing, diberikan static route pada semua router yang ada dengan route sebagai berikut untuk setiap router:
 

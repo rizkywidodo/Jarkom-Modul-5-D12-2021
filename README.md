@@ -6,6 +6,20 @@ Laporan Resmi Praktikum Jaringan Komputer 2021 - D12
 - Muhammad Rizky Widodo (05111940000216)
 
 ## A. Topologi Jaringan
+Pertama, membuat topologi jaringan sesuai rancangan yaitu sebagai berikut:
+
+![](./image/Screenshot_20211211-195903_Word.png)
+
+Keterangan:
+• Doriki sebagai DNS Server
+• Jipangu sebagai DHCP Server
+• Maingate dan Jorge sebagai Web Server
+• Jumlah Host pada Blueno adalah 100 host
+• Jumlah Host pada Cipher adalah 700 host
+• Jumlah Host pada Elena adalah 300 host
+• Jumlah Host pada Fukurou adalah 200 host
+
+
 
 ## B. Subnetting VLSM
 
